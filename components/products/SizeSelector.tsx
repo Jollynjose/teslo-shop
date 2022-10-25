@@ -5,9 +5,14 @@ import { IValidSizes } from '../../interfaces';
 interface Props {
   selectedSize?: IValidSizes;
   sizes: IValidSizes[];
+  onSelectSize: (size: IValidSizes) => void;
 }
 
-export const SizeSelector: FC<Props> = ({ selectedSize, sizes }) => {
+export const SizeSelector: FC<Props> = ({
+  selectedSize,
+  sizes,
+  onSelectSize,
+}) => {
   return (
     <Box>
       {sizes.map((size) => (
@@ -15,6 +20,7 @@ export const SizeSelector: FC<Props> = ({ selectedSize, sizes }) => {
           key={size}
           size="small"
           color={size === selectedSize ? 'primary' : 'info'}
+          onClick={() => onSelectSize(size)}
         >
           {size}
         </Button>

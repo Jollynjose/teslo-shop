@@ -10,8 +10,13 @@ import {
 import React from 'react';
 import { CartList, OrderSummary } from '../../components/cart';
 import { ShopLayout } from '../../components/layouts';
+import { useContext } from 'react';
+import { CartContext } from '../../context/cart/cartContext';
 
 const CartPage = () => {
+  const { cart } = useContext(CartContext);
+
+  console.log(cart);
   return (
     <ShopLayout
       title="Carrito - 3"
